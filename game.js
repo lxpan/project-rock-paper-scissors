@@ -17,7 +17,6 @@ function computerPlay() {
     randMoveID = Math.floor(Math.random() * 3);
     //console.log(randMoveID)
     return moveList[randMoveID];
-
 }
 
 function RoundVerdict(win, playerMove, aiMove) {
@@ -78,7 +77,6 @@ function game() {
                            playerChoice,
                            computerChoice))
     }
-    
 }
 
 game()
