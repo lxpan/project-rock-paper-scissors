@@ -20,6 +20,16 @@ function computerPlay() {
 
 }
 
+function RoundVerdict(win, playerMove, aiMove) {
+    if(win === true) {
+        return `Win! ${playerMove} beats ${aiMove}!`;
+    } else if(win === false) {
+        return `Loss! ${aiMove} beats ${playerMove}!`;
+    } else if(win === -1) {
+        return "Draw!";
+    }
+}
+
 // Plays a single round
 // Input: playerSelection, computerSelection
 // Output: string declaring winner of the round, e.g. "You Lose! Paper beats Rock"
@@ -33,27 +43,27 @@ function playRound(playerSelection, computerSelection) {
     switch(playerMove) {
         case "rock":
             if(aiMove == "rock") {
-                return "Draw!"
+                return -1
             } else if (aiMove == "scissor") {
-                return "Win! Rock beats scissor!"
+                return true
             } else {
-                return "Loss! Paper beats rock!"
+                return false
             }
         case "paper":
             if(aiMove == "paper") {
-                return "Draw!"
+                return -1
             } else if (aiMove == "rock") {
-                return "Win! Paper beats rock!"
+                return true
             } else {
-                return "Loss! Scissor beats paper!"
+                return false
             }
         case "scissor":
             if(aiMove == "scissor") {
-                return "Draw!"
+                return -1
             } else if(aiMove == "paper") {
-                return "Win! Scissor beats paper!"
+                return true
             } else {
-                return "Loss! Rock beats scissor!"
+                return false
             }
     }
 }
@@ -63,9 +73,10 @@ function playRound(playerSelection, computerSelection) {
 function game() {
     for(let i = 0; i < 5; i++) {
         playerChoice = prompt("Please enter your move");
-        result = playRound(playerChoice, computerPlay());
-        alert(result)
-        console.log(result)
+        computerChoice = computerPlay()
+        alert(RoundVerdict(playRound(playerChoice, computerChoice),
+                           playerChoice,
+                           computerChoice))
     }
     
 }
