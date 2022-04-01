@@ -7,13 +7,14 @@ The game will be played entirely within the console at this stage.
 
 */
 
+const moveList = {
+    0: "Rock",
+    1: "Paper",
+    2: "Scissor"
+}
+
 // Randomly returns a legal move
 function computerPlay() {
-    const moveList = {
-        0: "Rock",
-        1: "Paper",
-        2: "Scissor"
-    }
     randMoveID = Math.floor(Math.random() * 3);
     return moveList[randMoveID];
 }
