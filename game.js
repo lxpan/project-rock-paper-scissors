@@ -67,10 +67,10 @@ function playRound(playerSelection, computerSelection) {
 function game(numRounds=5) {
     for(let i = 0; i < numRounds; i++) {
         playerChoice = prompt("Please enter your move");
-        computerChoice = computerPlay()
-        alert(RoundVerdict(playRound(playerChoice, computerChoice),
-                           playerChoice,
-                           computerChoice))
+        computerChoice = computerPlay();
+        gameResult = playRound(playerChoice, computerChoice);
+
+        alert(RoundVerdict(gameResult, playerChoice, computerChoice));
     }
 }
 
