@@ -15,7 +15,6 @@ function computerPlay() {
         2: "Scissor"
     }
     randMoveID = Math.floor(Math.random() * 3);
-    //console.log(randMoveID)
     return moveList[randMoveID];
 }
 
@@ -30,8 +29,6 @@ function RoundVerdict(win, playerMove, aiMove) {
 }
 
 // Plays a single round
-// Input: playerSelection, computerSelection
-// Output: string declaring winner of the round, e.g. "You Lose! Paper beats Rock"
 function playRound(playerSelection, computerSelection) {
     playerMove = playerSelection.toLowerCase();
     aiMove = computerSelection.toLowerCase();
@@ -67,8 +64,6 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-// Plays 5 rounds by default
-// Calls playRound
 function game(numRounds=5) {
     for(let i = 0; i < numRounds; i++) {
         playerChoice = prompt("Please enter your move");
