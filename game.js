@@ -69,8 +69,8 @@ function playRound(playerSelection, computerSelection) {
 
 // Plays 5 rounds by default
 // Calls playRound
-function game() {
-    for(let i = 0; i < 5; i++) {
+function game(numRounds=5) {
+    for(let i = 0; i < numRounds; i++) {
         playerChoice = prompt("Please enter your move");
         computerChoice = computerPlay()
         alert(RoundVerdict(playRound(playerChoice, computerChoice),
@@ -79,4 +79,4 @@ function game() {
     }
 }
 
-game()
+game(3)
