@@ -32,6 +32,15 @@ function playRound(playerEvent) {
         }
     }
 
+    function resultCollector(_verdict) {
+        return {
+            win: _verdict,
+            resultString: RoundVerdict(_verdict),
+            playerSelection: playerMove,
+            computerSelection: aiMove
+        }
+    }
+
     // comes from button click
     playerMove = playerEvent.toLowerCase();
     aiMove = computerPlay().toLowerCase();
@@ -39,30 +48,31 @@ function playRound(playerEvent) {
     console.log(playerMove);
     console.log(aiMove);
 
+    // -1 refers to draw
     switch(playerMove) {
         case "rock":
             if(aiMove == "rock") {
-                return RoundVerdict(-1);
+                return resultCollector(-1);
             } else if (aiMove == "scissor") {
-                return RoundVerdict(true);
+                return resultCollector(true);
             } else {
-                return RoundVerdict(false);
+                return resultCollector(false);
             }
         case "paper":
             if(aiMove == "paper") {
-                return RoundVerdict(-1);
+                return resultCollector(-1);
             } else if (aiMove == "rock") {
-                return RoundVerdict(true);
+                return resultCollector(true);
             } else {
-                return RoundVerdict(false);
+                return resultCollector(false);
             }
         case "scissor":
             if(aiMove == "scissor") {
-                return RoundVerdict(-1);
+                return resultCollector(-1);
             } else if(aiMove == "paper") {
-                return RoundVerdict(true);
+                return resultCollector(true);
             } else {
-                return RoundVerdict(false);
+                return resultCollector(false);
             }
     }
 }
@@ -86,7 +96,7 @@ buttons.forEach(button => button.addEventListener('click', () => {
     result = playRound(button.className);
     console.log(result);
 
-    resultsPara.textContent = result;
+    resultsPara.textContent = result.resultString;
 }));
 
 // computerChoice = computerPlay();
