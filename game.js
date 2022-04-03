@@ -19,32 +19,34 @@ function computerPlay() {
     return moveList[randMoveID];
 }
 
-function RoundVerdict(win, playerMove, aiMove) {
-    if(win === true) {
-        return `Win! ${playerMove} beats ${aiMove}!`;
-    } else if(win === false) {
-        return `Loss! ${aiMove} beats ${playerMove}!`;
-    } else if(win === -1) {
-        return "Draw!";
-    }
-}
 
 // Plays a single round
-function playRound(playerSelection, computerSelection) {
-    playerMove = playerSelection.toLowerCase();
-    aiMove = computerSelection.toLowerCase();
+function playRound(playerEvent) {
+    function RoundVerdict(win) {
+        if(win === true) {
+            return `Win! ${playerMove} beats ${aiMove}!`;
+        } else if(win === false) {
+            return `Loss! ${aiMove} beats ${playerMove}!`;
+        } else if(win === -1) {
+            return "Draw!";
+        }
+    }
+
+    // comes from button click
+    playerMove = playerEvent.toLowerCase();
+    aiMove = computerPlay().toLowerCase();
 
     console.log(playerMove);
     console.log(aiMove);
-    // R > S
+
     switch(playerMove) {
         case "rock":
             if(aiMove == "rock") {
-                return -1
+                return RoundVerdict(-1);
             } else if (aiMove == "scissor") {
-                return true
+                return RoundVerdict(true);
             } else {
-                return false
+                return RoundVerdict(false);
             }
         case "paper":
             if(aiMove == "paper") {
@@ -64,6 +66,31 @@ function playRound(playerSelection, computerSelection) {
             }
     }
 }
+
+function updateScore() {
+
+}
+
+let result = 'Placeholder';
+let score = 0;
+
+resultsDiv = document.querySelector('div.results');
+resultsPara = document.createElement('p');
+resultsPara.textContent = '';
+resultsDiv.appendChild(resultsPara);
+
+
+buttons = document.querySelectorAll('button');
+// console.log(buttons);
+buttons.forEach(button => button.addEventListener('click', () => {
+    result = playRound(button.className);
+    console.log(result);
+
+    resultsPara.textContent = result;
+}));
+
+// computerChoice = computerPlay();
+// gameResult = playRound(playerChoice, computerChoice);
 
 /*
 function game(numRounds=5) {
