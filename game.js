@@ -50,19 +50,19 @@ function playRound(playerEvent) {
             }
         case "paper":
             if(aiMove == "paper") {
-                return -1
+                return RoundVerdict(-1);
             } else if (aiMove == "rock") {
-                return true
+                return RoundVerdict(true);
             } else {
-                return false
+                return RoundVerdict(false);
             }
         case "scissor":
             if(aiMove == "scissor") {
-                return -1
+                return RoundVerdict(-1);
             } else if(aiMove == "paper") {
-                return true
+                return RoundVerdict(true);
             } else {
-                return false
+                return RoundVerdict(false);
             }
     }
 }
@@ -81,7 +81,7 @@ resultsDiv.appendChild(resultsPara);
 
 
 buttons = document.querySelectorAll('button');
-// console.log(buttons);
+
 buttons.forEach(button => button.addEventListener('click', () => {
     result = playRound(button.className);
     console.log(result);
