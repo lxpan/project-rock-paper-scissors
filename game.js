@@ -65,6 +65,7 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+/*
 function game(numRounds=5) {
     for(let i = 0; i < numRounds; i++) {
         playerChoice = prompt("Please enter your move");
@@ -73,6 +74,6 @@ function game(numRounds=5) {
 
         alert(RoundVerdict(gameResult, playerChoice, computerChoice));
     }
-}
+} */
+// game(3)
 
-game(3)
