@@ -38,5 +38,16 @@ button {
     display: flex;
     flex-direction: row;
     gap: 30px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
+}
+
+.results {
+    
+    text-align: center;
+}
+
+.score {
+    color: yellow;
+    
+    text-align: center;
 }
