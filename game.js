@@ -77,8 +77,11 @@ function playRound(playerEvent) {
     }
 }
 
-function updateScore() {
-
+function gameRunner(evt) {
+    // currentTarget is the element that the event listener is attached to
+    result = playRound(evt.currentTarget.className);
+    console.log(result)
+    resultsPara.textContent = result.resultString;
 }
 
 let result = 'Placeholder';
@@ -92,12 +95,8 @@ resultsDiv.appendChild(resultsPara);
 
 buttons = document.querySelectorAll('button');
 
-buttons.forEach(button => button.addEventListener('click', () => {
-    result = playRound(button.className);
-    console.log(result);
+buttons.forEach(button => button.addEventListener('click', gameRunner));
 
-    resultsPara.textContent = result.resultString;
-}));
 
 // computerChoice = computerPlay();
 // gameResult = playRound(playerChoice, computerChoice);
