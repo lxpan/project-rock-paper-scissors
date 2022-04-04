@@ -77,9 +77,9 @@ function playRound(playerEvent) {
     }
 }
 
-function updateMoves(result) {
-    playerMoveDisplay.textContent = result.playerSelection;
-    computerMoveDisplay.textContent = result.computerSelection;
+function updateMoves(_result) {
+    playerMoveDisplay.textContent = _result.playerSelection;
+    computerMoveDisplay.textContent = _result.computerSelection;
 }
 
 function gameRunner(evt) {
