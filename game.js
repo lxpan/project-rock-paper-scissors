@@ -78,8 +78,8 @@ function playRound(playerEvent) {
 }
 
 function updateMoves(_result) {
-    playerMoveDisplay.textContent = _result.playerSelection;
-    computerMoveDisplay.textContent = _result.computerSelection;
+    playerMoveDisplay.textContent = `Player plays: ${_result.playerSelection}`;
+    computerMoveDisplay.textContent = `Computer plays: ${_result.computerSelection}`;
 }
 
 function gameRunner(evt) {
