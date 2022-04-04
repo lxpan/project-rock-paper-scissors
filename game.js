@@ -82,10 +82,12 @@ function gameRunner(evt) {
     result = playRound(evt.currentTarget.className);
     updateScore(result)
     
-    console.log(result);
+    console.log(result.win);
     console.log(playerScore);
     console.log(computerScore);
     resultsPara.textContent = result.resultString;
+
+    scorePara.textContent = `Player: ${playerScore} Computer: ${computerScore}`;
 }
 
 function updateScore(result) {
@@ -96,14 +98,23 @@ function updateScore(result) {
     }
 }
 
-// let result = 'Placeholder';
+function initialiseFeedbackArea() {
+    resultsDiv = document.querySelector('div.results');
+    resultsPara = document.createElement('p');
+    resultsPara.textContent = '';
+    resultsDiv.appendChild(resultsPara);
+
+    scoreDiv = document.querySelector('div.score');
+    scorePara = document.createElement('p');
+    scorePara.textContent = '';
+    scoreDiv.appendChild(scorePara);
+}
+
+
 let playerScore = 0;
 let computerScore = 0;
 
-resultsDiv = document.querySelector('div.results');
-resultsPara = document.createElement('p');
-resultsPara.textContent = '';
-resultsDiv.appendChild(resultsPara);
+initialiseFeedbackArea();
 
 buttons = document.querySelectorAll('button');
 buttons.forEach(button => button.addEventListener('click', gameRunner));
