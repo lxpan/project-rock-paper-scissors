@@ -5,6 +5,7 @@ Author: Luoxi Pan
 Description: implements the classic "Rock Paper Scissors" game in JavaScript.
 The game will be played entirely within the console at this stage.
 
+CSS Credits: https://css-tricks.com/old-timey-terminal-styling/
 */
 
 const moveList = {
@@ -95,12 +96,8 @@ function gameRunner(evt) {
     result = playRound(evt.currentTarget.className);
     updateMoves(result);
     updateScore(result)
-    
-    // console.log(result.win);
-    // console.log(playerScore);
-    // console.log(computerScore);
-    resultsPara.textContent = result.resultString;
 
+    resultsPara.textContent = result.resultString;
     scorePara.textContent = `Player: ${playerScore} Computer: ${computerScore}`;
 }
 
