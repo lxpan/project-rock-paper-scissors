@@ -80,12 +80,22 @@ function playRound(playerEvent) {
 function gameRunner(evt) {
     // currentTarget is the element that the event listener is attached to
     result = playRound(evt.currentTarget.className);
-    console.log(result)
+
+    if(result.win === true) {
+        playerScore += 1
+    } else if(result.win === false) {
+        computerScore += 1
+    }
+    
+    console.log(result);
+    console.log(playerScore);
+    console.log(computerScore);
     resultsPara.textContent = result.resultString;
 }
 
 let result = 'Placeholder';
-let score = 0;
+let playerScore = 0;
+let computerScore = 0;
 
 resultsDiv = document.querySelector('div.results');
 resultsPara = document.createElement('p');
@@ -95,5 +105,3 @@ resultsDiv.appendChild(resultsPara);
 
 buttons = document.querySelectorAll('button');
 buttons.forEach(button => button.addEventListener('click', gameRunner));
-
-
