@@ -94,22 +94,6 @@ resultsDiv.appendChild(resultsPara);
 
 
 buttons = document.querySelectorAll('button');
-
 buttons.forEach(button => button.addEventListener('click', gameRunner));
 
-
-// computerChoice = computerPlay();
-// gameResult = playRound(playerChoice, computerChoice);
-
-/*
-function game(numRounds=5) {
-    for(let i = 0; i < numRounds; i++) {
-        playerChoice = prompt("Please enter your move");
-        computerChoice = computerPlay();
-        gameResult = playRound(playerChoice, computerChoice);
-
-        alert(RoundVerdict(gameResult, playerChoice, computerChoice));
-    }
-} */
-// game(3)
 
