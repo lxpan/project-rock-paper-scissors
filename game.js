@@ -78,13 +78,21 @@ function playRound(playerEvent) {
 }
 
 function gameRunner(evt) {
+    if(playerScore == 5) {
+        resultsPara.textContent = 'Game Over! Player has won!';
+        return;
+    } else if(computerScore == 5) {
+        resultsPara.textContent = 'Game Over! Computer has won!';
+        return;
+    }
+
     // currentTarget is the element that the event listener is attached to
     result = playRound(evt.currentTarget.className);
     updateScore(result)
     
-    console.log(result.win);
-    console.log(playerScore);
-    console.log(computerScore);
+    // console.log(result.win);
+    // console.log(playerScore);
+    // console.log(computerScore);
     resultsPara.textContent = result.resultString;
 
     scorePara.textContent = `Player: ${playerScore} Computer: ${computerScore}`;
