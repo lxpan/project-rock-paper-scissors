@@ -77,6 +77,11 @@ function playRound(playerEvent) {
     }
 }
 
+function updateMoves(result) {
+    playerMoveDisplay.textContent = result.playerSelection;
+    computerMoveDisplay.textContent = result.computerSelection;
+}
+
 function gameRunner(evt) {
     if(playerScore == 5) {
         resultsPara.textContent = 'Game Over! Player has won!';
@@ -88,6 +93,7 @@ function gameRunner(evt) {
 
     // currentTarget is the element that the event listener is attached to
     result = playRound(evt.currentTarget.className);
+    updateMoves(result);
     updateScore(result)
     
     // console.log(result.win);
@@ -121,6 +127,9 @@ function initialiseFeedbackArea() {
 
 let playerScore = 0;
 let computerScore = 0;
+
+playerMoveDisplay = document.querySelector('.playerMove')
+computerMoveDisplay = document.querySelector('.computerMove')
 
 initialiseFeedbackArea();
 
